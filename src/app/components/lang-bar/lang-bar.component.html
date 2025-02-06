@@ -1,0 +1,18 @@
+<div class="lang-sidebar" [ngClass]="{'lang-sidebar-collapsed': isSidebarCollapsed}">
+    <div class="dropdown" [ngClass]="{'show': isDropdownOpen}">
+      <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+        {{ selectedLanguage }}
+      </button>
+      <ul class="dropdown-menu" [ngClass]="{'show': isDropdownOpen}">
+        <li *ngFor="let lang of languages">
+          <button class="dropdown-item" (click)="selectLanguage(lang)">{{ lang }}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Mobile Toggle Button -->
+  <button class="mobile-langbar-toggle" (click)="toggleSidebar()">
+    <i class="fas fa-globe"></i> <!-- Language Icon -->
+  </button>
+  

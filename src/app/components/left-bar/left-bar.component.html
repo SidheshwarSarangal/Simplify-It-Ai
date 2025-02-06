@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="outer">
+  <!-- Sidebar -->
+  <div class="sidebar" [ngClass]="{'sidebar-collapsed': isSidebarCollapsed}">
+    <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+      <a [routerLink]="['/text']">
+        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off">
+        <label class="btn btn-outline-danger" for="vbtn-radio1">Text Meaning</label>
+      </a>
+
+      <a [routerLink]="['/audio']">
+        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+        <label class="btn btn-outline-danger" for="vbtn-radio2">Audio Meaning</label>
+      </a>
+
+      <a [routerLink]="['/image']">
+        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+        <label class="btn btn-outline-danger" for="vbtn-radio3">Image Generation</label>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Toggle Button -->
+  <button class="mobile-sidebar-toggle" (click)="toggleSidebar()">
+    <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+  </button>
+</div>

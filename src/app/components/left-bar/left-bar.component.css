@@ -1,0 +1,125 @@
+/* Sidebar Style */
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;  /* Sidebar width */
+  height: auto;
+  background-color: #343a40;
+  padding-top: 60px;
+  padding-left: 20px;
+  transform: translate(-50%, -50%); /* Center it horizontally and vertically */
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  display: none; /* Sidebar is hidden by default */
+}
+
+/* Collapsed Sidebar (Hidden) */
+.sidebar-collapsed {
+  display: block; /* Show the sidebar when toggled */
+}
+
+/* Button Size & Font Increase */
+.btn {
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: left;
+  font-size: 1.2rem;
+  padding: 15px;
+  color: white;
+}
+
+.btn-check:checked + .btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-check:focus + .btn {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
+
+.btn:hover {
+  background-color: #ff3f53;
+  color: white;
+}
+
+.btn-group-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* For Mobile Screens (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Sidebar is hidden by default on mobile */
+  .sidebar {
+    display: none; /* Sidebar hidden */
+  }
+
+  /* Show the sidebar when toggled */
+  .sidebar.sidebar-collapsed {
+    display: block; /* Sidebar visible when toggled */
+    position: fixed;
+    align-items: center;
+    padding-right: 20px;
+    top: 20%;
+    left: 50%;
+    width: 60%; /* Sidebar width */
+    height: auto;
+    background-color: #343a40;
+    padding-top: 60px;
+    padding-left: 20px;
+    transform: translate(-50%, -40%); /* Center it horizontally and vertically */
+    z-index: 1000;
+  }
+
+  /* Mobile Toggle Button */
+  .mobile-sidebar-toggle {
+    position: fixed;
+    top: 100px; /* Adjust position to make the button more prominent */
+    left: 10px;
+    background-color: #343a40;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;  /* Increased size */
+    font-size: 30px;  /* Larger icon */
+    border: none;
+    z-index: 1000;  /* Ensure the button is on top of other elements */
+  }
+
+  /* Button Adjustments */
+  .btn {
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+}
+
+/* For Larger Screens (Tablet/Desktop - min-width: 769px) */
+@media (min-width: 769px) {
+  /* Sidebar is visible by default */
+  .sidebar {
+    display: block; /* Show the sidebar */
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 250px; /* Sidebar width on larger screens */
+    height: 50vh;
+    background-color: #343a40;
+    padding-top: 60px;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transform: translateY(-50%);  /* Keep it vertically centered */
+  }
+
+  /* Hide the hamburger button on larger screens */
+  .mobile-sidebar-toggle {
+    display: none; 
+  }
+}
