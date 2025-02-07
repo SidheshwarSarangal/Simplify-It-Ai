@@ -1,10 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import connectDB from './config/db.js';
+import authRoutes from './routes/authRoutes.js';
+import otpRoutes from './routes/otpEmailRoutes.js';
 
+
+// Load environment variables
 dotenv.config();
 
+// Initialize Express app
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -12,20 +17,21 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
+// Connect to MongoDB
+connectDB();
+
 // Basic route
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('Error connecting to MongoDB:', err));
+// Routes
+app.use('/api/auth', authRoutes);
+
+app.use('/api/otp', otpRoutes);
+
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`🚀 Server is running on http://localhost:${port}`);
 });
